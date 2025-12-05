@@ -28,8 +28,7 @@
     },
     "files": [
       "**/*",
-      "!node_modules/**/*",
-      "node_modules/tmi.js/**"
+      "node_modules/**/*"
     ],
     "win": {
       "target": ["portable", "zip"]
