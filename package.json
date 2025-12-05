@@ -9,17 +9,12 @@
     "build": "electron-builder --win --x64",
     "build:all": "electron-builder --win --mac --linux"
   },
-  "keywords": [
-    "twitch",
-    "chat",
-    "filter",
-    "electron"
-  ],
+  "keywords": ["twitch", "chat", "filter", "electron"],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "electron": "^28.0.0",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.9.1"
   },
   "dependencies": {
     "tmi.js": "^1.8.5"
@@ -33,7 +28,7 @@
     "files": [
       "**/*",
       "!node_modules/**/*",
-      "node_modules/tmi.js/**/*"
+      "node_modules/tmi.js/**"
     ],
     "win": {
       "target": "nsis",
