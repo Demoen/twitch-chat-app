@@ -5,16 +5,45 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dev": "electron . --dev"
+    "dev": "electron . --dev",
+    "build": "electron-builder --win --x64",
+    "build:all": "electron-builder --win --mac --linux"
   },
-  "keywords": ["twitch", "chat", "filter", "electron"],
+  "keywords": [
+    "twitch",
+    "chat",
+    "filter",
+    "electron"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^28.0.0"
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3"
   },
   "dependencies": {
     "tmi.js": "^1.8.5"
+  },
+  "build": {
+    "appId": "com.twitchchatfilter.app",
+    "productName": "Twitch Chat Filter",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "node_modules/tmi.js/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   }
 }
-
