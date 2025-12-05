@@ -10,11 +10,9 @@ A professional Electron desktop app that intelligently filters Twitch chat to sh
 
 ### Connection Screen
 ![Connection Screen](Screenshot%202025-12-05%20140604.png)
-*Configure your filter settings and connect to any Twitch channel*
 
 ### Live Chat View
 ![Live Chat View](Screenshot%202025-12-05%20141058.png)
-*Real-time filtered chat with emote support, mood tracking, and channel avatar display*
 
 ---
 
@@ -73,66 +71,21 @@ Message 4: "KEKW" → Current Mood: [KEKW] 4x
 ...continues growing...
 ```
 
-### 🎨 Professional UI Design
-
-#### Modern Interface
-- 🌙 **Dark theme** - Beautiful purple gradient design
-- 💎 **Glass-morphism** - Translucent buttons with backdrop blur
-- ✨ **Smooth animations** - GPU-accelerated transitions
-- 📱 **Responsive** - Adapts to different screen sizes
-- 🎯 **Clean layout** - Distraction-free fullscreen chat
-
-#### Chat Display
-- 👤 **Username badges** - Colored badges with user's Twitch color
-- 🖼️ **Channel avatar** - Displays streamer's profile picture
-- ⏰ **Timestamps** - Monospace font for easy reading
-- 🎭 **Inline emotes** - Actual emote images within messages
-- 📜 **Custom scrollbar** - Purple gradient, smooth scrolling
-- 🎬 **Slide-in animation** - Messages appear smoothly
-- 🌈 **Hover effects** - Subtle purple glow on message hover
-
-#### Action Buttons
-- 🗑️ **Clear Chat** - Glass-morphism design with icon
-- 🚪 **Disconnect** - Premium purple gradient button
-- 🎨 **Icon animations** - Icons scale on hover
-- 💫 **Smooth transitions** - 0.1-0.2s for snappy feel
-
-### 📊 Real-Time Statistics
-Track filtering effectiveness:
-- **Total Messages** - All messages received
-- **Filtered** - Messages blocked by filters
-- **Shown** - Quality messages displayed
-
----
-
 ## 🚀 Quick Start
 
-### Installation
+### Option 1: Download Release (Recommended)
+1. **Download** the latest release from [GitHub Releases](https://github.com/Demoen/twitch-chat-app/releases)
+2. **Run** `Twitch Chat Filter 1.0.0.exe` - No installation required!
 
-1. **Clone the repository**
+### Option 2: Run from Source
 ```bash
 git clone <repository-url>
 cd twitch-chat-app
-```
-
-2. **Install dependencies**
-```bash
 npm install
-```
-
-3. **Run the application**
-```bash
 npm start
 ```
 
-4. **Development mode** (with DevTools)
-```bash
-npm run dev
-```
-
-### Requirements
-- Node.js 16 or higher
-- Internet connection (for Twitch chat and emote APIs)
+**Requirements:** Internet connection for Twitch chat and emote APIs
 
 ---
 
