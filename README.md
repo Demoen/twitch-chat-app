@@ -6,6 +6,16 @@ A professional Electron desktop app that intelligently filters Twitch chat to sh
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Electron](https://img.shields.io/badge/electron-latest-green)
 
+## 📸 Screenshots
+
+### Connection Screen
+![Connection Screen](Screenshot%202025-12-05%20140604.png)
+*Configure your filter settings and connect to any Twitch channel*
+
+### Live Chat View
+![Live Chat View](Screenshot%202025-12-05%20141058.png)
+*Real-time filtered chat with emote support, mood tracking, and channel avatar display*
+
 ---
 
 ## ✨ Features Overview
