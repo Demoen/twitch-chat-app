@@ -1,0 +1,20 @@
+{
+  "name": "twitch-chat-filter",
+  "version": "1.0.0",
+  "description": "Filter Twitch chat to show only serious questions and comments",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev"
+  },
+  "keywords": ["twitch", "chat", "filter", "electron"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0"
+  },
+  "dependencies": {
+    "tmi.js": "^1.8.5"
+  }
+}
+

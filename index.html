@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitch Chat Filter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Initial Connection Screen -->
+  <div id="connectionScreen" class="connection-screen">
+    <div class="connection-card">
+      <header class="header">
+        <h1>🎮 Twitch Chat Filter</h1>
+        <p class="subtitle">Filter out spam and focus on meaningful messages</p>
+      </header>
+
+      <div class="connection-section">
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="channelInput" 
+            placeholder="Enter Twitch channel name (e.g., shroud)"
+            autocomplete="off"
+          />
+          <button id="connectBtn" class="btn btn-primary">Connect</button>
+        </div>
+        <div id="connectionStatus" class="status-message"></div>
+      </div>
+
+      <div class="filter-controls">
+        <h3>Filter Settings</h3>
+        <div class="filter-grid">
+          <label class="filter-option">
+            <input type="checkbox" id="filterAllCaps" checked>
+            <span>Filter ALL CAPS messages</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filterRepeating" checked>
+            <span>Filter repeating words (copypasta)</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filterEmoteOnly" checked>
+            <span>Filter emote-only messages</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filterShort" checked>
+            <span>Filter very short messages (&lt;10 chars)</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filterGibberish" checked>
+            <span>Filter gibberish text</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filterExcessiveEmotes" checked>
+            <span>Filter excessive emotes (>40% of message)</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filterCustomWords" checked>
+            <span>Filter custom words</span>
+          </label>
+        </div>
+        
+        <!-- Custom Filter Section -->
+        <div class="custom-filter-section">
+          <h3>Custom Word Filter</h3>
+          <div class="custom-filter-controls">
+            <div class="custom-filter-input-group">
+              <input 
+                type="text" 
+                id="customWordInput" 
+                placeholder="Add words to filter (comma-separated)"
+                autocomplete="off"
+              />
+              <button id="addCustomWordsBtn" class="btn btn-small">Add Words</button>
+            </div>
+            
+            <div class="custom-filter-file-group">
+              <input 
+                type="file" 
+                id="customWordFile" 
+                accept=".txt,.csv"
+                style="display: none;"
+              />
+              <button id="importFileBtn" class="btn btn-small">Import from File (.txt/.csv)</button>
+              <button id="clearCustomWordsBtn" class="btn btn-small btn-secondary">Clear All</button>
+            </div>
+            
+            <div id="customWordsList" class="custom-words-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat View Screen (Hidden by default) -->
+  <div id="chatScreen" class="chat-screen" style="display: none;">
+    <div class="chat-header-bar">
+      <div class="chat-info">
+        <div class="channel-display">
+          <img id="channelAvatar" class="channel-avatar" src="" alt="Channel Avatar" style="display: none;">
+          <div class="channel-text">
+            <h2 id="channelName">Channel</h2>
+            <div class="stats-inline">
+              <span>Total: <strong id="totalCount">0</strong></span>
+              <span>Filtered: <strong id="filteredCount">0</strong></span>
+              <span>Shown: <strong id="shownCount">0</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Current Mood Display -->
+      <div id="currentMood" class="current-mood">
+        <span class="mood-label">Current Mood:</span>
+        <span class="mood-emote mood-placeholder">—</span>
+        <span class="mood-count mood-waiting">Waiting...</span>
+      </div>
+      
+      <div class="chat-actions">
+        <button id="clearBtn" class="btn-action btn-clear">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+          </svg>
+          Clear Chat
+        </button>
+        <button id="disconnectBtn" class="btn-action btn-disconnect-new">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+          </svg>
+          Disconnect
+        </button>
+      </div>
+    </div>
+    
+    <div id="chatMessages" class="chat-messages-fullscreen">
+      <div class="empty-state">
+        <p>Waiting for quality messages...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
+
